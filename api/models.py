@@ -1,4 +1,15 @@
 from django.db import models
+import string
+import random
+
+def generate_unique_id():
+    length = 6
+    while True:
+        id = ''.join(random.choices(string.ascii_uppercase, k=length))
+        if Listing.objects.filter(id=id).count() == 0:
+            break
+    return id
+
 
 # Create your models here.
 class Listing(models.Model):
