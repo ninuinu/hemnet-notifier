@@ -13,3 +13,5 @@ pip-delete-this-directory.txt
 # Django:
 *.log
 *.pot
+
+db.sqlite3
