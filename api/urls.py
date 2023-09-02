@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import ListingView
 
 urlpatterns = [
-    path('hello/', views.main)
+    path('hello/', ListingView.as_view())
 ]
