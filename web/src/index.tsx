@@ -6,4 +6,4 @@ const Root: React.FC = () => {
   return <App />;
 };
 
-render(<Root />, document.getElementById("root"));
+render(<Root />, document.getElementById("app"));
