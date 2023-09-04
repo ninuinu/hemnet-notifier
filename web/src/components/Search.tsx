@@ -9,19 +9,29 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControl from "@mui/material/FormControlLabel";
 import { Container, FormControlLabel, FormLabel } from "@mui/material";
+import ListingCard from "./ListingCard";
 
 export default function Search(props: any) {
   return (
-    <Grid container alignContent="center" spacing={1}>
-      <Grid item textAlign="center" xs={12}>
+    <Grid
+      container
+      justifyContent="center"
+      alignItems="center"
+      direction="column"
+      spacing={1}
+    >
+      <Grid item textAlign="center" xs={2}>
         <Typography>Search for a listing</Typography>
       </Grid>
-      <Grid item textAlign="center" xs={12}>
+      <Grid item textAlign="center" xs={2}>
         <FormLabel component="legend">Display purchasing price</FormLabel>
         <RadioGroup row defaultValue="yes">
           <FormControl value="yes" control={<Radio />} label="Yes" />
           <FormControl value="no" control={<Radio />} label="No" />
         </RadioGroup>
+      </Grid>
+      <Grid item textAlign="center" xs={2}>
+        <ListingCard />
       </Grid>
     </Grid>
   );
