@@ -1,3 +1,9 @@
-export default function Home() {
-  return <div>Hemnet Notifier</div>;
+import Links from "@/components/Links";
+
+export default function Page() {
+  return (
+    <>
+      <Links />
+    </>
+  );
 }
