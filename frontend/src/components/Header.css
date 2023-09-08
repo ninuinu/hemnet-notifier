@@ -1,0 +1,13 @@
+.button--sign-up {
+  color: grey;
+}
+
+.button--sign-up:hover {
+  color: beige;
+  background: black;
+}
+
+.nav-bar--link:hover {
+  color: blueviolet;
+  transition: all 0.25s ease-out;
+}
