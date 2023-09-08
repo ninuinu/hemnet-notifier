@@ -1,3 +1,3 @@
 export default function Page() {
-  return <h1>Track</h1>;
+  return <div className="text-2xl pb-5">Track</div>;
 }
