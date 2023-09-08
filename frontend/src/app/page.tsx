@@ -1,9 +1,3 @@
-import Links from "@/components/Links";
-
 export default function Page() {
-  return (
-    <>
-      <Links />
-    </>
-  );
+  return <div className="text-2xl">Home</div>;
 }
