@@ -21,3 +21,9 @@ body {
   color: rgb(var(--font-color));
   background: rgb(var(--foreground-rgb));
 }
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
