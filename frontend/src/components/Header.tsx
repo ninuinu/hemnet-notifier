@@ -13,13 +13,13 @@ export default function () {
         justifyContent="center"
         alignItems="center"
         direction="row"
-        spacing={12}
-        className="p-10"
+        spacing={5}
+        className="p-6 nav-bar"
       >
         {links.map((link) => {
           return (
             <Grid item>
-              <Link href={link} className="nav-bar--link text-2xl">
+              <Link href={link} className="nav-bar--link text-xl px-4 py-2">
                 {pages[links.indexOf(link)]}
               </Link>
             </Grid>
