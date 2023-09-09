@@ -7,7 +7,7 @@ export default function () {
   const pages = ["Home", "Dashboard", "Track", "Search", "Notify"];
 
   return (
-    <>
+    <nav>
       <Grid
         container
         justifyContent="center"
@@ -31,6 +31,6 @@ export default function () {
           </Button>
         </Grid>
       </Grid>
-    </>
+    </nav>
   );
 }
