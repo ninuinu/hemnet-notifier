@@ -1,4 +1,5 @@
-import Header from "@/components/Header";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
 import Wrapper from "@/components/Wrapper";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
@@ -17,11 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={dm_sans.className}>
-        <Header />
-        <Wrapper>{children}</Wrapper>
-      </body>
-    </html>
+    <>
+      <html lang="en">
+        <body className={dm_sans.className}>
+          <main className="main">
+            <Header />
+            <Wrapper>{children}</Wrapper>
+            <Footer />
+          </main>
+        </body>
+      </html>
+    </>
   );
 }
