@@ -22,9 +22,12 @@ export default function (props: Listing) {
         <Card sx={{ maxWidth: 800 }}>
           <CardActionArea>
             <Grid container direction="row" xs={12}>
-              <Grid item xs={6}>
-                <img src={img.src} alt="Logo" width={500} height={250} />
-              </Grid>
+              <img
+                src={props.listing.imageUrl}
+                alt="Logo"
+                width={400}
+                height={"auto"}
+              />
               <Grid item xs={6}>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
