@@ -1,6 +1,7 @@
 import getListing from "@/lib/api/getListing";
 import Listing from "./components/Listing";
 import "./page.css";
+import { Grid } from "@mui/material";
 
 type Params = {
   params: {
@@ -9,14 +10,15 @@ type Params = {
 };
 
 export default async function Page({ params: { id } }: Params) {
-  const listing = getListing(id);
-  await listing;
+  const listing = await getListing(id);
 
   return (
     <>
-      <section className="container">
-        <Listing promise={listing}></Listing>
-      </section>
+      <Grid container>
+        <Grid item xs={5}>
+          <Listing listing={listing}></Listing>
+        </Grid>
+      </Grid>
     </>
   );
 }
