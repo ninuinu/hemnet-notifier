@@ -13,13 +13,13 @@ interface Listing {
 }
 
 export default function ({ listing }: Listing) {
-  const price = listing.price;
-  const formatedPrice = formatNumberWithSpaces(price);
+  const price = formatNumberWithSpaces(listing.price);
+  const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
 
   return (
     <>
       <Link href={`/listing/${listing.id}`}>
-        <Card sx={{ maxWidth: 800 }}>
+        <Card sx={{ maxWidth: 800, height: 182 }}>
           <CardActionArea>
             <Grid container direction="row" xs={12}>
               <img
@@ -37,9 +37,9 @@ export default function ({ listing }: Listing) {
                   <br />
 
                   <div>
-                    <Typography>{formatedPrice} kr</Typography>
+                    <Typography>{price} kr</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {listing.monthlyFee} kr/mån
+                      {monthlyFee} kr/mån
                     </Typography>
                   </div>
                 </CardContent>
