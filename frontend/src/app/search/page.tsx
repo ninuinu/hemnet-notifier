@@ -1,4 +1,4 @@
-import ListingCard from "@/components/ListingCard";
+import ListingCard from "@/components/Listing/ListingCard";
 import getAllListings from "@/lib/api/getAllListings";
 import { Grid, TextField } from "@mui/material";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export default async function Page({
   const page =
     typeof searchParams.page === "string" ? Number(searchParams.page) : 1;
   const limit =
-    typeof searchParams.limit === "string" ? Number(searchParams.limit) : 3;
+    typeof searchParams.limit === "string" ? Number(searchParams.limit) : 10;
 
   const listings: any = await getAllListings(page, limit);
 
@@ -25,7 +25,7 @@ export default async function Page({
           <TextField fullWidth label="Address" id="fullWidth" />
         </Grid>
         <Grid item xs={8}>
-          <Grid container direction="column" item xs={12} spacing={4}>
+          <Grid container direction="column" item xs={12} spacing={2}>
             {listings.map((listing: any) => {
               return (
                 <Grid item xs={8}>

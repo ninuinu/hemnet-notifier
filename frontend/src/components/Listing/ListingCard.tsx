@@ -12,31 +12,36 @@ interface Listing {
   listing: any;
 }
 
-export default function (props: Listing) {
-  const price = props.listing.price;
-  const formatedPrice = formatNumberWithSpaces(price);
+export default function ({ listing }: Listing) {
+  const price = formatNumberWithSpaces(listing.price);
+  const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
 
   return (
     <>
-      <Link href={`/listing/${props.listing.id}`}>
-        <Card sx={{ maxWidth: 800 }}>
+      <Link href={`/listing/${listing.id}`}>
+        <Card sx={{ maxWidth: 800, height: 182 }}>
           <CardActionArea>
             <Grid container direction="row" xs={12}>
-              <Grid item xs={6}>
-                <img src={img.src} alt="Logo" width={500} height={250} />
-              </Grid>
+              <img
+                src={listing.imageUrl}
+                alt="Logo"
+                width={400}
+                height={"auto"}
+              />
               <Grid item xs={6}>
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {props.listing.address}
+                    {listing.address}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
-                  </Typography>
+
                   <br />
-                  <Typography>Price: {formatedPrice}</Typography>
+
+                  <div>
+                    <Typography>{price} kr</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {monthlyFee} kr/mån
+                    </Typography>
+                  </div>
                 </CardContent>
               </Grid>
             </Grid>
