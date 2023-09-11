@@ -5,9 +5,12 @@ type Props = {
 export default async function Listing({ promise }: Props) {
   const listing = await promise;
 
+  console.log(listing);
+
   return (
-    <article key={listing.id}>
+    <section key={listing.id}>
       <h2>{listing.address}</h2>
-    </article>
+      <img src={listing.imageUrl} alt={listing.address} />
+    </section>
   );
 }
