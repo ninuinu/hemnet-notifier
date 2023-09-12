@@ -21,7 +21,7 @@ export default function ({ listing }: Listing) {
       <Link href={`/listing/${listing.id}`}>
         <Card sx={{ maxWidth: 800, height: 182 }}>
           <CardActionArea>
-            <Grid container direction="row" xs={12}>
+            <Grid container direction="row">
               <img
                 src={listing.imageUrl}
                 alt="Logo"
