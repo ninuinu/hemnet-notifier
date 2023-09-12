@@ -1,32 +1,30 @@
 import ListingCard from "@/components/Listing/ListingCard";
 import getAllListings from "@/lib/api/getAllListings";
-import { Grid, TextField } from "@mui/material";
+import { Listing } from "@/shared/types";
+import { Grid } from "@mui/material";
 import Link from "next/link";
+import SearchBar from "./components/SearchBar";
 
-export default async function Page({
-  searchParams,
-}: {
+type SearchParams = {
   searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const page =
-    typeof searchParams.page === "string" ? Number(searchParams.page) : 1;
-  const limit =
-    typeof searchParams.limit === "string" ? Number(searchParams.limit) : 10;
+};
 
-  const listings: any = await getAllListings(page, limit);
+export default async function SearchPage({ searchParams }: SearchParams) {
+  const page = searchParams.page ? Number(searchParams.page) : 1;
+  const limit = searchParams.limit ? Number(searchParams.limit) : 10;
 
-  const start = (Number(page) - 1) * Number(limit);
+  const listings: Listing[] = await getAllListings(page, limit);
 
   return (
     <>
       <div className="text-2xl pb-5">Search</div>
       <Grid container spacing={12}>
         <Grid item xs={4}>
-          <TextField fullWidth label="Address" id="fullWidth" />
+          <SearchBar />
         </Grid>
         <Grid item xs={8}>
           <Grid container direction="column" item xs={12} spacing={2}>
-            {listings.map((listing: any) => {
+            {listings.map((listing: Listing) => {
               return (
                 <Grid item xs={8}>
                   <ListingCard listing={listing}></ListingCard>
