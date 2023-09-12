@@ -1,14 +1,14 @@
 import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
+import { Listing } from "@/shared/types";
 
 type Props = {
-  listing: any;
+  listing: Listing;
 };
 
 export default async function Listing({ listing }: Props) {
   const price = formatNumberWithSpaces(listing.price);
   const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
   const sqmPrice = formatNumberWithSpaces(listing.sqmPrice);
-  const [day, month, year] = listing.datePublished.replace("-", "/");
 
   const balcony: any = {
     Ja: "Yes",
