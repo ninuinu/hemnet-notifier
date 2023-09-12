@@ -9,10 +9,8 @@ export default async function Page({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const page =
-    typeof searchParams.page === "string" ? Number(searchParams.page) : 1;
-  const limit =
-    typeof searchParams.limit === "string" ? Number(searchParams.limit) : 10;
+  const page = searchParams.page ? Number(searchParams.page) : 1;
+  const limit = searchParams.limit ? Number(searchParams.limit) : 10;
 
   const listings: any = await getAllListings(page, limit);
 
