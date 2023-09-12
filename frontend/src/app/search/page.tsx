@@ -1,20 +1,19 @@
 import ListingCard from "@/components/Listing/ListingCard";
 import getAllListings from "@/lib/api/getAllListings";
+import { Listing } from "@/shared/types";
 import { Grid } from "@mui/material";
 import Link from "next/link";
 import SearchBar from "./components/SearchBar";
 
-export default async function Page({
-  searchParams,
-}: {
+type SearchParams = {
   searchParams: { [key: string]: string | string[] | undefined };
-}) {
+};
+
+export default async function SearchPage({ searchParams }: SearchParams) {
   const page = searchParams.page ? Number(searchParams.page) : 1;
   const limit = searchParams.limit ? Number(searchParams.limit) : 10;
 
-  const listings: any = await getAllListings(page, limit);
-
-  const start = (Number(page) - 1) * Number(limit);
+  const listings: Listing[] = await getAllListings(page, limit);
 
   return (
     <>
@@ -25,7 +24,7 @@ export default async function Page({
         </Grid>
         <Grid item xs={8}>
           <Grid container direction="column" item xs={12} spacing={2}>
-            {listings.map((listing: any) => {
+            {listings.map((listing: Listing) => {
               return (
                 <Grid item xs={8}>
                   <ListingCard listing={listing}></ListingCard>
