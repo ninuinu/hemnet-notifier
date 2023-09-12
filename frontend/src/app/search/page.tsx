@@ -1,7 +1,8 @@
 import ListingCard from "@/components/Listing/ListingCard";
 import getAllListings from "@/lib/api/getAllListings";
-import { Grid, TextField } from "@mui/material";
+import { Grid } from "@mui/material";
 import Link from "next/link";
+import SearchBar from "./components/SearchBar";
 
 export default async function Page({
   searchParams,
@@ -22,7 +23,7 @@ export default async function Page({
       <div className="text-2xl pb-5">Search</div>
       <Grid container spacing={12}>
         <Grid item xs={4}>
-          <TextField fullWidth label="Address" id="fullWidth" />
+          <SearchBar />
         </Grid>
         <Grid item xs={8}>
           <Grid container direction="column" item xs={12} spacing={2}>
