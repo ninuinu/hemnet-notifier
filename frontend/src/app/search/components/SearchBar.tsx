@@ -1,7 +1,7 @@
 "use client";
 import { Listing } from "@/shared/types";
 import { TextField } from "@mui/material";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
@@ -12,5 +12,19 @@ export default function SearchBar() {
     );
   };
 
-  return <TextField fullWidth label="Address" id="fullWidth" />;
+  const handleChange = (
+    e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    setQuery(e.target.value);
+  };
+  return (
+    <>
+      <TextField
+        fullWidth
+        label="Address"
+        id="fullWidth"
+        onChange={handleChange}
+      />
+    </>
+  );
 }
