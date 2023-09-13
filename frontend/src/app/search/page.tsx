@@ -45,7 +45,7 @@ export default async function SearchPage({ searchParams }: SearchParams) {
           <Grid container direction="column" item xs={12} spacing={2}>
             {listings.map((listing: Listing) => {
               return (
-                <Grid item xs={8}>
+                <Grid item key={listing.hemnetListingId} xs={8}>
                   <ListingCard listing={listing}></ListingCard>
                 </Grid>
               );

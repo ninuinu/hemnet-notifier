@@ -15,15 +15,19 @@ export default function () {
         spacing={5}
         className="p-6 nav-bar"
       >
-        {links.map((link) => {
-          return (
-            <Grid item>
-              <Link href={link} className="nav-bar--link text-xl px-4 py-2">
+        <Grid item>
+          {links.map((link) => {
+            return (
+              <Link
+                key={link}
+                href={link}
+                className="nav-bar--link text-xl px-4 py-2"
+              >
                 {pages[links.indexOf(link)]}
               </Link>
-            </Grid>
-          );
-        })}
+            );
+          })}
+        </Grid>
         <Grid item>
           <Button className="button--sign-up" size="large">
             Sign Up
