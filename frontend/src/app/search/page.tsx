@@ -6,14 +6,33 @@ import Link from "next/link";
 import SearchBar from "./components/SearchBar";
 
 type SearchParams = {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string };
 };
 
 export default async function SearchPage({ searchParams }: SearchParams) {
+  const searchQuery = searchParams.search ?? "";
+
   const page = searchParams.page ? Number(searchParams.page) : 1;
   const limit = searchParams.limit ? Number(searchParams.limit) : 10;
 
-  const listings: Listing[] = await getAllListings(page, limit);
+  let listings: Listing[] = [];
+
+  const allListings: Listing[] = await getAllListings();
+  const initialListings: Listing[] = await getAllListings(page, limit);
+
+  const filteredListings = allListings.filter((listing: Listing) => {
+    return listing.address.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
+  if (searchQuery.length > 0) {
+    if (filteredListings) {
+      listings = filteredListings;
+    } else {
+      listings = [];
+    }
+  } else {
+    listings = initialListings ?? [];
+  }
 
   return (
     <>

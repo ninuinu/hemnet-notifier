@@ -1,18 +1,16 @@
-import * as React from "react";
+import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
+import { Listing } from "@/shared/types";
+import { CardActionArea, Grid } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Grid } from "@mui/material";
-import img from "../../public/listing.jpg";
 import Link from "next/link";
-import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
 
-interface Listing {
-  listing: any;
-}
+type ListingCardProps = {
+  listing: Listing;
+};
 
-export default function ({ listing }: Listing) {
+export default function ({ listing }: ListingCardProps) {
   const price = formatNumberWithSpaces(listing.price);
   const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
 
@@ -35,13 +33,28 @@ export default function ({ listing }: Listing) {
                   </Typography>
 
                   <br />
+                  <Grid container justifyContent="space-between">
+                    <div>
+                      <Typography>{price} kr</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {monthlyFee} kr/mån
+                      </Typography>
+                    </div>
 
-                  <div>
-                    <Typography>{price} kr</Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {monthlyFee} kr/mån
-                    </Typography>
-                  </div>
+                    <div>
+                      <Typography>{} kr</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {monthlyFee} kr/mån
+                      </Typography>
+                    </div>
+
+                    <div>
+                      <Typography>{price} kr</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        {monthlyFee} kr/mån
+                      </Typography>
+                    </div>
+                  </Grid>
                 </CardContent>
               </Grid>
             </Grid>
