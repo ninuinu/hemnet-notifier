@@ -12,7 +12,6 @@ export default function () {
         container
         justifyContent="center"
         alignItems="center"
-        direction="row"
         spacing={5}
         className="p-6 nav-bar"
       >
