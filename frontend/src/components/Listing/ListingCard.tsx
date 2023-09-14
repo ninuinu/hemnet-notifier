@@ -23,12 +23,8 @@ export const translateBalconyAttribute = (
   return translator[balconyAttributeInSwedish];
 };
 
-export default function ({ listing }: ListingCardProps) {
-  const price = formatNumberWithSpaces(listing.price);
-  const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
-  const sqmPrice = formatNumberWithSpaces(listing.sqmPrice);
+const getTags = (listing: Listing) => {
   const tags: string[] = [];
-
   if (listing.balcony === "Ja") {
     tags.push("Balcony");
   }
@@ -38,7 +34,13 @@ export default function ({ listing }: ListingCardProps) {
   if (listing.patio === "Ja") {
     tags.push("Patio");
   }
-  console.log(listing.elevator);
+  return tags;
+};
+
+export default function ({ listing }: ListingCardProps) {
+  const price = formatNumberWithSpaces(listing.price);
+  const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
+  const sqmPrice = formatNumberWithSpaces(listing.sqmPrice);
 
   return (
     <>
@@ -82,7 +84,7 @@ export default function ({ listing }: ListingCardProps) {
                     </div>
                   </Grid>
                   <Grid container className="mt-2">
-                    {tags.map((tag, index) => {
+                    {getTags(listing).map((tag, index) => {
                       return (
                         <ListingAttributeTag
                           key={index}
