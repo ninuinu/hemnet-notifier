@@ -53,7 +53,7 @@ export default async function SearchPage({ searchParams }: SearchParams) {
           </Grid>
         </Grid>
       </Grid>
-      <div className="flex space-x-6 text-2xl">
+      <div className="flex space-x-6 text-2xl pt-20">
         <Link
           href={`/search?page=${page > 1 ? page - 1 : 1}`}
           className={
