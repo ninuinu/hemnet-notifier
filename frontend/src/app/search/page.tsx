@@ -45,7 +45,7 @@ export default async function SearchPage({ searchParams }: SearchParams) {
           <Grid container direction="column" item xs={12} spacing={2}>
             {listings.map((listing: Listing) => {
               return (
-                <Grid item xs={8}>
+                <Grid item key={listing.hemnetListingId} xs={8}>
                   <ListingCard listing={listing}></ListingCard>
                 </Grid>
               );
@@ -53,7 +53,7 @@ export default async function SearchPage({ searchParams }: SearchParams) {
           </Grid>
         </Grid>
       </Grid>
-      <div className="flex space-x-6 text-2xl">
+      <div className="flex space-x-6 text-2xl pt-20">
         <Link
           href={`/search?page=${page > 1 ? page - 1 : 1}`}
           className={

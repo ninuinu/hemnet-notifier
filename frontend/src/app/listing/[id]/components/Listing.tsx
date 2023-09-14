@@ -1,3 +1,4 @@
+import { translateBalconyAttribute } from "@/components/Listing/ListingCard";
 import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
 import { Listing } from "@/shared/types";
 
@@ -9,15 +10,6 @@ export default async function Listing({ listing }: ListingProps) {
   const price = formatNumberWithSpaces(listing.price);
   const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
   const sqmPrice = formatNumberWithSpaces(listing.sqmPrice);
-
-  const translateBalconyAttribute = (balconyAttributeInSwedish: string) => {
-    const translator: any = {
-      Ja: "Yes",
-      Nej: "No",
-      "": "No",
-    };
-    return translator[balconyAttributeInSwedish];
-  };
 
   const translateFloorAttribute = (floorAttributeInSwedish: string) => {
     const translatedFloorAttribute = floorAttributeInSwedish.replace(

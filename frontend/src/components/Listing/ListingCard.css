@@ -1,0 +1,7 @@
+.listing-card {
+  filter: drop-shadow(0 0 0.5rem #ededed);
+}
+
+.listing-card:hover {
+  outline: 0.2px solid #c4c4c4;
+}
