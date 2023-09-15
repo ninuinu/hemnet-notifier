@@ -1,5 +1,5 @@
 import getListing from "@/lib/api/getListing";
-import ListingComponent from "./components/Listing";
+import ListingInformation from "./components/ListingInformation";
 import { Grid } from "@mui/material";
 import getListingMatches from "@/lib/api/getListingMatches";
 import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
@@ -23,7 +23,7 @@ export default async function ListingPage({ params: { id } }: Params) {
     <>
       <Grid container justifyContent="center">
         <Grid item xs={5}>
-          <ListingComponent listing={listing}></ListingComponent>
+          <ListingInformation listing={listing}></ListingInformation>
           {hasMatches && <ListingMatches id={id} matches={matches} />}
         </Grid>
       </Grid>

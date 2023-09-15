@@ -14,8 +14,6 @@ export default async function ListingMatches({
     (match) => match.id !== Number(id)
   );
 
-  console.log(matchesExcludingListing);
-
   return (
     <>
       <div className="py-10 text-2xl">Price reductions</div>
