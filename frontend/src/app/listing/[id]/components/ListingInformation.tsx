@@ -6,7 +6,7 @@ type ListingProps = {
   listing: Listing;
 };
 
-export default async function Listing({ listing }: ListingProps) {
+export default async function ListingInformation({ listing }: ListingProps) {
   const price = formatNumberWithSpaces(listing.price);
   const monthlyFee = formatNumberWithSpaces(listing.monthlyFee);
   const sqmPrice = formatNumberWithSpaces(listing.sqmPrice);
