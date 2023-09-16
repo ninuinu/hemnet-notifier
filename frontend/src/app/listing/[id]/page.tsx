@@ -1,6 +1,6 @@
 import getListing from "@/lib/api/getListing";
 import ListingInformation from "./components/ListingInformation";
-import { Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import getListingMatches from "@/lib/api/getListingMatches";
 import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
 import ListingMatches from "./components/ListingMatches";
@@ -24,7 +24,14 @@ export default async function ListingPage({ params: { id } }: Params) {
       <Grid container justifyContent="center">
         <Grid item xs={5}>
           <ListingInformation listing={listing}></ListingInformation>
-          {hasMatches && <ListingMatches id={id} matches={matches} />}
+          {hasMatches && <Divider />}
+          {hasMatches && (
+            <ListingMatches
+              id={id}
+              matches={matches}
+              currentPrice={listing.price}
+            />
+          )}
         </Grid>
       </Grid>
     </>
