@@ -31,7 +31,7 @@ export default async function ListingInformation({ listing }: ListingProps) {
   };
 
   return (
-    <section key={listing.id} className="w-full">
+    <section key={listing.id} className="w-full pb-10">
       <img
         className="rounded-lg"
         src={listing.imageUrl}
@@ -42,7 +42,9 @@ export default async function ListingInformation({ listing }: ListingProps) {
 
       <section className="flex py-10  justify-between">
         <div>
-          <div className="text-2xl">{listing.address}</div>
+          <div className="text-2xl transition-colors duration-300 ease-in-out hover:text-blue-700">
+            <a href={listing.url}>{listing.address}</a>
+          </div>
           <div className="flex text-gray-400">Stockholm</div>
         </div>
 
