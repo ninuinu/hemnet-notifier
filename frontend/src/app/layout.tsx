@@ -4,6 +4,7 @@ import Wrapper from "@/components/Wrapper";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const dm_sans = DM_Sans({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <ClerkProvider>
       <html lang="en">
         <body className={dm_sans.className}>
           <main className="main">
@@ -28,6 +29,6 @@ export default function RootLayout({
           </main>
         </body>
       </html>
-    </>
+    </ClerkProvider>
   );
 }
