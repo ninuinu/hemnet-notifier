@@ -1,10 +1,9 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import Wrapper from "@/components/Wrapper";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
 const dm_sans = DM_Sans({ subsets: ["latin"] });
 
@@ -24,7 +23,7 @@ export default function RootLayout({
         <body className={dm_sans.className}>
           <main className="main">
             <Header />
-            <Wrapper>{children}</Wrapper>
+            {children}
             <Footer />
           </main>
         </body>
