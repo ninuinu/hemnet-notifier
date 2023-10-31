@@ -1,5 +1,5 @@
 import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
-import { Listing } from "@/shared/types";
+import { Listing } from "@/lib/types";
 
 type ListingMatchesProps = {
   id: string;

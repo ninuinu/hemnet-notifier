@@ -1,10 +1,12 @@
 import ListingCard from "@/components/Listing/ListingCard";
-import getAllListings from "@/lib/api/getAllListings";
-import { Listing } from "@/shared/types";
+import getAllUniqueListings from "@/lib/api/getUniqueListings";
+import { Listing } from "@/lib/types";
 import { Grid } from "@mui/material";
 import Link from "next/link";
 import SearchBar from "./components/SearchBar";
-import getAllUniqueListings from "@/lib/api/getUniqueListings";
+import { Button } from "@/components/ui/button";
+import { Mail } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 type SearchParams = {
   searchParams: { [key: string]: string };
@@ -41,6 +43,9 @@ export default async function SearchPage({ searchParams }: SearchParams) {
       <Grid container spacing={12}>
         <Grid item xs={4}>
           <SearchBar />
+          <Button variant={"default"} size={"sm"}>
+            <Mail className="mr-2 h-4 w-4" /> Login with Email
+          </Button>
         </Grid>
         <Grid item xs={8}>
           <Grid container direction="column" item xs={12} spacing={2}>

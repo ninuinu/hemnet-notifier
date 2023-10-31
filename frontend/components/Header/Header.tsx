@@ -1,6 +1,7 @@
 import { Button, Grid } from "@mui/material";
 import Link from "next/link";
 import "./Header.css";
+import MobileSidebar from "./MobileSidebar";
 
 export default function () {
   const links = ["/", "/dashboard", "/track", "/search", "/notify"];
@@ -15,6 +16,10 @@ export default function () {
         spacing={5}
         className="p-6 nav-bar"
       >
+        <Grid item>
+          <MobileSidebar />
+        </Grid>
+
         <Grid item>
           {links.map((link) => {
             return (

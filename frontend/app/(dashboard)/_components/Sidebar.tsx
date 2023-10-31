@@ -1,3 +1,4 @@
+import { Button } from "../../../components/ui/button";
 import Logo from "./Logo";
 import SidebarRoutes from "./SidebarRoutes";
 
@@ -9,6 +10,9 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col w-full">
         <SidebarRoutes />
+        <Button variant={"destructive"} size={"sm"}>
+          r me!
+        </Button>
       </div>
     </div>
   );

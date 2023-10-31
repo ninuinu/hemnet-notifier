@@ -4,7 +4,7 @@ import { Divider, Grid } from "@mui/material";
 import getListingMatches from "@/lib/api/getListingMatches";
 import formatNumberWithSpaces from "@/lib/formatNumberWithSpaces";
 import ListingMatches from "./components/ListingMatches";
-import { Listing } from "@/shared/types";
+import { Listing } from "@/lib/types";
 import { match } from "assert";
 
 type Params = {
